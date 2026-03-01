@@ -746,3 +746,5 @@ Please use this scraper responsibly and in accordance with applicable laws and r
 <p align="center">
   <b>If this project saved you time, consider <a href="https://github.com/gosom/google-maps-scraper">starring it</a> or <a href="https://github.com/sponsors/gosom">sponsoring</a> its development!</b>
 </p>
+#   G M A P - S c r a p p e r  
+ 
