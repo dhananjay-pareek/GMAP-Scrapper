@@ -355,3 +355,100 @@ nav a:hover {
     transform: translateY(-1px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+/* ── Info icon tooltip system ── */
+.label-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.label-row label {
+    margin-bottom: 0;
+}
+
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    font-style: normal;
+    cursor: help;
+    position: relative;
+    flex-shrink: 0;
+    line-height: 1;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.info-icon:hover {
+    background-color: #1a73e8;
+}
+
+.info-icon::after {
+    content: attr(data-tip);
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #1f2937;
+    color: #f9fafb;
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.5;
+    padding: 8px 12px;
+    border-radius: 6px;
+    white-space: pre-wrap;
+    width: 220px;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease;
+}
+
+.info-icon::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid transparent;
+    border-right-color: #1f2937;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease;
+    z-index: 101;
+}
+
+.info-icon:hover::after,
+.info-icon:hover::before {
+    opacity: 1;
+}
+
+/* Button wrapper for inline info icon next to buttons */
+.btn-with-info {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Action cell tooltip: flip tooltip to left side */
+.action-info::after {
+    left: auto;
+    right: 22px;
+}
+.action-info::before {
+    left: auto;
+    right: 18px;
+    border-right-color: transparent;
+    border-left-color: #1f2937;
+}

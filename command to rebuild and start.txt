@@ -1,0 +1,21 @@
+▶ START the web UI server
+--------------------------
+./google-maps-scraper -web -addr :8080 &
+
+Then open: http://localhost:8080
+
+
+⏹ STOP / turn off the server
+------------------------------
+pkill -f "google-maps-scraper"
+
+
+🔄 REBUILD + RESTART (needed after any HTML/CSS changes)
+---------------------------------------------------------
+pkill -f "google-maps-scraper" 2>/dev/null; go build -o google-maps-scraper . && ./google-maps-scraper -web -addr :8080 &
+
+
+📋 RUN A SCRAPE FROM COMMAND LINE (no web UI)
+----------------------------------------------
+echo "restaurants in Mumbai" > input.txt
+./google-maps-scraper -input input.txt -results output.csv -c 2 -depth 10
